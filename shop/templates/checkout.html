@@ -1,0 +1,124 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Checkout</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Checkout</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+  <main>
+    <!-- checkout area start -->
+    <div class="checkout-area pt-120 pb-80" dir="rtl">
+      <div class="container">
+        <div class="return-customar-login-warning-link mb-30 wow fadeInUp" data-wow-delay="0.1s">
+          <span>Have a coupon?</span><a href="#">Click here to enter your code</a>
+        </div>
+        <div class="row">
+          <div class="col-xxl-7 col-xl-7 col-lg-7 mb-40 wow fadeInLeft" data-wow-delay="0.4s">
+            <div class="billing-details-space-right pb-10">
+              <h4 class="billing-details-title mb-25">Billing details</h4>
+              <div class="submit-form-default">
+                <div class="row">
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="submit-form-default-single mb-15">
+                      <input type="text" id="firstname" placeholder="First name" class="firstname" />
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="submit-form-default-single mb-15">
+                      <input type="text" id="lastname" class="lastname" placeholder="Last name" />
+                    </div>
+                  </div>
+                  <div class="col-xxl-12">
+                    <div class="submit-form-default-single mb-15">
+                      <input type="text" id="companyname" class="companyname" placeholder="Company name" />
+                    </div>
+                  </div>
+                  <div class="col-xxl-12">
+                    <div class="submit-form-default-single">
+                      <select name="country" id="country" class="select-country has-nice-select-2">
+                        <option value="1">United States</option>
+                        <option value="2">Bangladesh</option>
+                        <option value="1">United States</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-xxl-12">
+                    <div class="submit-form-default-single mb-15">
+                      <input type="text" placeholder="Address" class="address" />
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="submit-form-default-single mb-15">
+                      <input type="text" placeholder="City" class="city" />
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="submit-form-default-single mb-15">
+                      <input type="text" placeholder="Zip Code" class="zip" />
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="submit-form-default-single mb-35">
+                      <input type="number" placeholder="Phone" class="phone" />
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="submit-form-default-single mb-35">
+                      <input type="email" placeholder="Email Address" class="checkout-email" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="billing-details-space-right">
+              <div class="row">
+                <div class="col-xxl-12">
+                  <h4 class="billing-details-title mb-25">Additional information</h4>
+                  <div class="submit-form-default-single">
+                    <textarea name="message" cols="30" rows="10" placeholder="Order notes (optional)"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-5 col-xl-5 col-lg-5 wow fadeInRight" data-wow-delay="0.6s">
+            <div class="pl-40 checkout-widget-left-space">
+              <div class="checkout-wrap">
+                <div class="checkout-total-box-2">
+                  <h4 class="title">checkout Totals</h4>
+                  <ul>
+                    <li>
+                      <span class="product-name">Product</span> <span class="product-total">Subtotal</span>
+                    </li>
+                    <li>
+                      <span class="label">
+                        لورم ایپسوم متن</span> <span class="price">$65.00</span>
+                    </li>
+                    <li>
+                      <span class="label">CC Camera</span> <span class="price">$55.00</span>
+                    </li>
+                    <li>
+                      <span class="label">
+                        لورم ایپسوم متن</span> <span class="price">$120.00</span>
+                    </li>
+                    <li>
+                      <span class="label">Total</span> <span class="price total-price">$120.00</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="checkout-bottom">
+                  <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+                  <button class="checkout-checkout-form-btn theme-btn" type="submit">Checkout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- checkout area end -->
+  </main>
+{% endblock %}

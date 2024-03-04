@@ -1,0 +1,59 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Blogs</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Blogs</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+    <!-- blog area start -->
+    <section>
+      <div class="blog-area pt-110 pb-80" dir="rtl">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-area text-center mb-45">
+                <span class="section-subtitle mb-2 wow fadeInUp" data-wow-delay="0.1s">بلاگ ها</span>
+                <h2 class="section-title mb-15 wow fadeInUp" data-wow-delay="0.3s">بلاگ ها</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for b in blogs %}
+              <div class="col-xl-4 col-lg-6 col-md-6">
+                <div class="card mb-40 wow fadeInUp" data-wow-delay="0.3s">
+                  <div class="blog-post-info">
+                    <div class="blog-post-btn">
+                      <a href="{% url 'Blog' b.slug %}" class="blog-btn">
+                        <span>مطالب بیشتر</span>
+                        <i class="fal fa-long-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-post-img w_img" style="height: 300px;">
+                    <a href="{% url 'Blog' b.slug %}"><img src="{{ b.image_fa.url }}" alt="Not Found" /></a>
+                    <div class="blog-post-category">
+                      <span>Security</span>
+                    </div>
+                  </div>
+                  <div class="blog-post-content">
+                    <div class="blog-post-meta">
+                      <ul>
+                        <li class="post-date">{{ b.date_create }}</li>
+                        <li class="post-author">از <a href="#">&nbsp;{{ b.creator }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <h4 class="post-title"><a href="{% url 'Blog' b.slug %}">{{ b.title_fa }}</a></h4>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- blog area end -->
+{% endblock %}

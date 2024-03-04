@@ -1,0 +1,105 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Products</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Products</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+  <div class="container pt-120 pb-80">
+    <!-- shop area start -->
+    <section>
+      <div class="row">
+        <div class="col-12">
+          <div class="section-area text-center mb-45">
+            <span class="section-subtitle mb-2 wow fadeInUp" data-wow-delay="0.1s">Camera Shop</span>
+            <h2 class="section-title mb-15 wow fadeInUp" data-wow-delay="0.3s">Security Cameras shop</h2>
+          </div>
+        </div>
+      </div>
+      <div class="shop-sorting-wrapper mb-30">
+        <div class="row align-items-center">
+          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 text-center text-md-start">
+            <div class="product__result">
+              <p dir="rtl">
+                <span>{{products.count}}</span>
+                مورد یافت شد
+              </p>
+            </div>
+          </div>
+          <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6">
+            <div class="product__filter-wrapper d-flex align-items-center justify-content-center justify-content-md-end">
+              <div class="row flex-md-nowrap" dir="rtl">
+                <div class="col-12 col-md-6 justify-content-center justify-content-md-start  product__filter-count d-flex align-items-center mb-15">
+                  <span class="text-nowrap">ترتیب بر اساس:</span>
+                  <select onchange="change_filter(this,'ordering')">
+                    <option value="-pk" {% if request.GET.ordering == '-pk' %} selected {% endif %}>پیش فرض</option>
+                    <option value="-views" {% if request.GET.ordering == '-views' %} selected {% endif %}>پربازدیدترین</option>
+                    <option value="-pk" {% if request.GET.ordering == '-pk' %} selected {% endif %}>جدیدترین</option>
+                    <option value="price" {% if request.GET.ordering == 'price' %} selected {% endif %}>ارزان به گران</option>
+                    <option value="-price" {% if request.GET.ordering == '-price' %} selected {% endif %}>گران به ارزان</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6 justify-content-center justify-content-md-start  product__filter-count d-flex align-items-center mb-15 mr-15">
+                  <span dir="rtl">دسته بندی :</span>
+                  <select onchange="change_filter(this,'category')">
+                    <option value="">همه</option>
+                    {% for c in categories %}
+                      <option value="{{c.slug}}" {% if request.GET.category == c.slug %} selected {% endif %}>{{c.name_fa}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shop-area pt-115 pb-80" dir="rtl">
+        <div class="container">
+          <div class="row">
+            {% for p in products %}
+            <div class="col-xl-4 col-lg-4 col-md-6">
+              <div class="shop-item mb-40 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="shop-img w_img" style="height: 300px;">
+                  <a href="{% url 'Product' p.slug %}"><img src="{{ p.image_fa.url }}" alt="Image Not Found" /></a>
+                  <div class="shop-cart-action">
+                    <div class="shop-cart-icon">
+                      <a href="{% url 'Cart' %}"><i class="fal {{ p.icon }}"></i> به سبد بیافزایید</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="shop-content">
+                  <div class="shop-content-rating">
+                    <a href="#"><i class="fas fa-star"></i></a>
+                    <a href="#"><i class="fas fa-star"></i></a>
+                    <a href="#"><i class="fas fa-star"></i></a>
+                    <a href="#"><i class="fas fa-star"></i></a>
+                    <a href="#"><i class="fas fa-star"></i></a>
+                  </div>
+                  <h3 class="shop-content-title"><a href="{% url 'Product' p.slug %}">{{ p.title_fa }}</a></h3>
+                  <div class="shop-content-price">
+                    <a href="{% url 'Product' p.slug %}">تومان {{ p.price }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- shop area end -->
+  </div>
+{% endblock %}
+{% block script %}
+<script>
+  function change_filter(el,mod){
+    let url = new URL(window.location.href);
+    url.searchParams.set(mod, el.value); 
+    window.location.href=url;
+  }
+</script>
+
+{% endblock %}

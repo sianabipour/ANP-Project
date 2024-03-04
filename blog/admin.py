@@ -1,0 +1,17 @@
+from django.contrib import admin
+from .models import Category, Blog , Tag , Comment
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('slug','name_fa','name_en')
+ 
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    pass

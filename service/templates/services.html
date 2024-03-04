@@ -1,0 +1,53 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Services</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Services</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+  <!-- service area start -->
+  <section>
+    <div class="service-area pt-110 pb-120 bg-light" dir="rtl">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-area text-center mb-45">
+              <span class="section-subtitle mb-2 wow fadeInUp" data-wow-delay="0.1s">خدمات</span>
+              <h2 class="section-title mb-15 wow fadeInUp" data-wow-delay="0.3s">خدمات</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="service-section wow fadeInUp" data-wow-delay="0.3s">
+              <div class="section-area">
+                <span class="section-subtitle mb-10">کارمان چیست؟</span>
+                <h2 class="section-title f-46 mb-0">خدمات ما</h2>
+              </div>
+            </div>
+          </div>
+          {% for s in services %}
+          <div class="col-xl-4 col-lg-6 col-md-6 service-border">
+            <a href="{% url 'Service' s.slug %}">
+              <div class="service-item wow fadeInUp" data-wow-delay="0.4s">
+                <div class="service-img bg-default" data-background="{{ s.image_fa.url }}"></div>
+                <div class="service-icon">
+                  <i class="fal {{ s.icon }}"></i>
+                </div>
+                <div class="service-content">
+                  <h3 class="service-content-title"><a href="{% url 'Service' s.slug %}">{{ s.title_fa }}</a></h3>
+                  <p>{{ s.meta_description_fa }}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- service area end -->
+{% endblock %}

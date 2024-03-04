@@ -1,0 +1,737 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+  <main>
+    <!-- banner area start -->
+    <!-- version 1 -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-inner">
+        {% for s in slider %}
+          {% if s.link %}
+            <div class="carousel-item {% if forloop.counter == 1 %}{% endif %}">
+              <a href="{{ s.link }}"><img src="{{ s.image_fa.url }}" class="d-block w-100" alt="..." /></a>
+            </div>
+          {% else %}
+            <div class="carousel-item {% if forloop.counter == 1 %}{% endif %}">
+              <img src="{{ s.image_fa.url }}" class="d-block w-100" alt="..." />
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- version 2 -->
+
+    {% comment %}
+    <section>
+      <div class="banner-area" dir="rtl">
+        <div class="banner-wrap">
+          <div class="banner-banner-control">
+            <div class="swiper-container banner-thumbs">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="banner-main">
+                    <div class="banner-control-item">
+                      <div class="banner-content">
+                        <span class="banner-subtitle wow fadeInUp" data-wow-delay="0.1s">لورم ایپسوم متن</span>
+                        <h2 class="banner-title wow fadeInUp" data-wow-delay="0.3s">Choice For Security Service</h2>
+                        <div class="banner-button mt-35 wow fadeInUp" data-wow-delay="0.5s">
+                          <a class="about_content-link banner-btn" href="about.html"><span>لورم ایپسوم متن</span><i class="fal fa-long-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="banner-main">
+                    <div class="banner-control-item">
+                      <div class="banner-content">
+                        <span class="banner-subtitle wow fadeInUp" data-wow-delay="0.1s">لورم ایپسوم متن</span>
+                        <h2 class="banner-title wow fadeInUp" data-wow-delay="0.3s">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</h2>
+                        <div class="banner-button mt-35 wow fadeInUp" data-wow-delay="0.5s">
+                          <a class="about_content-link banner-btn" href="about.html"><span>لورم ایپسوم متن</span><i class="fal fa-long-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="banner-img-wrap">
+            <div class="swiper-container banner-active">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="single-banner wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="banner-image bg-default" data-background="{% static 'assets/img/banner/zamin.jpg' %}"></div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="single-banner wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="banner-image bg-default" data-background="{% static 'assets/img/banner/mard.jpg' %}"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="banner-navigation">
+            <div class="banner-swiper-prev">
+              <i class="fal fa-angle-left"></i>
+            </div>
+            <div class="banner-swiper-next">
+              <i class="fal fa-angle-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="banner-area-social-wrapp d-none d-lg-inline-block" dir="ltr">
+          <button class="ns-header-action-search"><i class="fal fa-search"></i></button>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Linkedin</a>
+        </div>
+      </div>
+    </section>
+    {% endcomment %}
+    <!-- banner area end -->
+
+    <!-- about area start -->
+    <section>
+      <div class="about-area pt-120 pb-80" dir="rtl">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-area mb-45">
+                <span class="section-subtitle mb-2 wow fadeInUp" data-wow-delay="0.1s">لورم ایپسوم متن</span>
+                <h2 class="section-title mb-15 wow fadeInUp" data-wow-delay="0.3s">لورم ایپسوم متن ساختگی <br /> با تولید سادگی نامفهوم.</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center g-0">
+            <div class="col-xl-6 col-lg-6">
+              <div class="about-img w_img mb-40 wow fadeInUp" data-wow-delay="0.3s">
+                <img src="{% static 'assets/img/about/1.jpg' %}" alt="About Img" />
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+              <div class="about-wrap mb-30">
+                <div class="about_posts">
+                  <div class="about_posts-item mb-30">
+                    <div class="about-media w_img wow fadeInLeft" data-wow-delay="0.5s">
+                      <a href="about.html"><img src="{% static 'assets/img/about/post_1.jpg' %}" alt="Image Not Found" /></a>
+                    </div>
+                    <div class="about-content wow fadeInRight" data-wow-delay="0.5s">
+                      <h4 class="about_content-title"><a href="about.html">لورم ایپسوم متن</a></h4>
+                      <p class="about_content-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</p>
+                      <a class="about_content-link" href="about.html">
+                        <span>لورم ایپسوم متن</span>
+                        <i class="fal fa-long-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="about_posts-item">
+                    <div class="about-media w_img wow fadeInLeft" data-wow-delay="0.7s">
+                      <a href="about.html"><img src="{% static 'assets/img/about/post_2.jpg' %}" alt="Image Not Found" /></a>
+                    </div>
+                    <div class="about-content wow fadeInRight" data-wow-delay="0.7s">
+                      <h4 class="about_content-title"><a href="about.html">لورم ایپسوم متن</a></h4>
+                      <p class="about_content-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</p>
+                      <a class="about_content-link" href="about.html">
+                        <span>لورم ایپسوم متن</span>
+                        <i class="fal fa-long-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about area end -->
+
+    <!-- service area start -->
+    <section>
+      <div class="service-area pt-110 pb-120 bg-light" dir="rtl">
+        <div class="container">
+          <div class="row g-0">
+            <div class="col-xl-4 col-lg-6 col-md-6">
+              <div class="service-section wow fadeInUp" data-wow-delay="0.3s">
+                <div class="section-area">
+                  <span class="section-subtitle mb-10">کارمان چیست؟</span>
+                  <h2 class="section-title f-46 mb-0">خدمات ما</h2>
+                </div>
+              </div>
+            </div>
+            {% for s in services %}
+            <div class="col-xl-4 col-lg-6 col-md-6 service-border">
+              <a href="{% url 'Service' s.slug %}">
+                <div class="service-item wow fadeInUp" data-wow-delay="0.4s">
+                  <div class="service-img bg-default" data-background="{{ s.image_fa.url }}"></div>
+                  <div class="service-icon">
+                    <i class="fal {{ s.icon }}"></i>
+                  </div>
+                  <div class="service-content">
+                    <h3 class="service-content-title"><a href="{% url 'Service' s.slug %}">{{ s.title_fa }}</a></h3>
+                    <p>{{ s.meta_description_fa }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- service area end -->
+
+    <!-- product area start -->
+    <section>
+      <div class="product-area pt-120" dir="rtl">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">
+              <div class="product-img w_img pb-40 pb-lg-0 pr-40 wow fadeInUp" data-wow-delay="0.3s">
+                <img src="{% static 'assets/img/product/1.png' %}" alt="Image Not Found" />
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6" dir="rtl">
+              <div class="section-area mb-45">
+                <span class="section-subtitle mb-2 wow fadeInUp" data-wow-delay="0.1s">لورم ایپسوم متن</span>
+                <h2 class="section-title mb-25 wow fadeInUp" data-wow-delay="0.3s">Our Latest Product That You Needed.</h2>
+                <p class="section-text wow fadeInUp mb-0" data-wow-delay="0.5s">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</p>
+              </div>
+              <div class="product-circle mb-70">
+                <div class="product-circle-item wow fadeInUp" data-wow-delay="0.7s">
+                  <svg class="radial-progress web-design" data-percentage="70" viewBox="0 0 80 80">
+                    <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                    <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
+                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">70%</text>
+                  </svg>
+                  <h4 class="product-item-title">Product Marketing</h4>
+                </div>
+                <div class="product-circle-item wow fadeInUp" data-wow-delay="0.85s">
+                  <svg class="radial-progress web-design" data-percentage="65" viewBox="0 0 80 80">
+                    <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                    <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
+                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">65%</text>
+                  </svg>
+                  <h4 class="product-item-title">Secure Development</h4>
+                </div>
+                <div class="product-circle-item wow fadeInUp" data-wow-delay="1s">
+                  <svg class="radial-progress web-design" data-percentage="80" viewBox="0 0 80 80">
+                    <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                    <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
+                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">80%</text>
+                  </svg>
+                  <h4 class="product-item-title">Fast Investment</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-wrapper-bg" dir="rtl">
+          <div class="product-wraps container">
+            <div class="inner-wrap">
+              <div class="product-content has-spaces">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="section-area text-center mb-45">
+                      <h2 class="section-title mb-15 mt-35 wow fadeInUp" style="color:var(--clr-common-white);" data-wow-delay="0.3s">همکاران ما</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-inner">
+                  {% for c in customers %}
+                    <div class="product-item wow fadeInUp" data-wow-delay="0.3s">
+                      <div class="p-3">
+                        <img class="w-100" alt="شرکت های همکار" src="{{ c.image.url }}" />
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- product area end -->
+
+    <!-- video area start -->
+    <div class="video-area pb-120">
+      <div class="video-img bg-default" data-background="{% static 'assets/img/video/video-bg.jpg' %}">
+        <div class="video-icon">
+          <a href="https://www.youtube.com/watch?v=SopsEuNKyPo" class="play-btn popup-video"><i class="fas fa-play"></i></a>
+        </div>
+      </div>
+      <div class="container" dir="rtl">
+        <div class="row">
+          <div class="col-xl-10">
+            <div class="video-wrap pt-120 pt-md-0">
+              <div class="video-active swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="video-item">
+                      <div class="row align-items-center">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-5">
+                          <div class="video-inner-img mb-30 mb-sm-0 wow fadeInUp" data-wow-delay="0.3s">
+                            <img src="{% static 'assets/img/video/1.jpg' %}" alt="Image Not Found" />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-7" dir="rtl">
+                          <div class="video-content wow fadeInUp" data-wow-delay="0.5s">
+                            <h3 class="video-content-title">Closed Circuit Cameras</h3>
+                            <p>Provide fastest & secure always</p>
+                            <a class="about_content-link" href="service-details.html">
+                              <span>Read More</span>
+                              <i class="fal fa-long-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="video-item">
+                      <div class="row align-items-center">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-5" dir="rtl">
+                          <div class="video-inner-img mb-30 mb-sm-0 wow fadeInUp" data-wow-delay="0.3s">
+                            <img src="{% static 'assets/img/video/2.jpg' %}" alt="Image Not Found" />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-7" dir="rtl">
+                          <div class="video-content wow fadeInUp" data-wow-delay="0.5s">
+                            <h3 class="video-content-title">Security CCTV Cameras</h3>
+                            <p>Our proffession to provide security</p>
+                            <a class="about_content-link" href="service-details.html">
+                              <span>Read More</span>
+                              <i class="fal fa-long-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="video-item">
+                      <div class="row align-items-center">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-5">
+                          <div class="video-inner-img mb-30 mb-sm-0 wow fadeInUp" data-wow-delay="0.3s">
+                            <img src="{% static 'assets/img/video/3.jpg' %}" alt="Image Not Found" />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-7">
+                          <div class="video-content wow fadeInUp" data-wow-delay="0.5s">
+                            <h3 class="video-content-title">surveillance camera</h3>
+                            <p>Your security is our responsibility</p>
+                            <a class="about_content-link" href="service-details.html">
+                              <span>Read More</span>
+                              <i class="fal fa-long-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- video area end -->
+
+    <!-- portfolio area start -->
+    <section>
+      <div class="portfolio-area" dir="rtl">
+        <div class="portfolio-wrap">
+          <div class="portfolio-controller">
+            <div class="swiper-container portfolio-thumbs">
+              <div class="swiper-wrapper">
+                  {% for p in projects %}
+                  <div class="swiper-slide">
+                    <div class="controller-item">
+                      <div class="controller-icon">
+                        <i class="fal {{ p.icon }}"></i>
+                      </div>
+                      <div class="controller-info">
+                        <h4>{{ p.name_fa }}</h4>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+
+              <div class="portfolio-navigation">
+                <div class="portfolio-swiper-prev">
+                  <i class="fal fa-angle-right"></i>
+                </div>
+                <div class="portfolio-swiper-next">
+                  <i class="fal fa-angle-left"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-container portfolio-active">
+            <div class="swiper-wrapper">
+              {% for p in projects %}
+                <div class="swiper-slide">
+                  <div class="portfolio-item bg-default" data-background="{{ p.image_fa.url }}">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-xl-6 col-lg-8">
+                          <div class="portfolio-content">
+                            <h2 class="portfolio-content-title wow fadeInUp" data-wow-delay="0.1s">{{ p.name_fa }}</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">{{ p.meta_description_fa|truncatewords:20 }}</p>
+                            <div class="theme-buttons wow fadeInUp" data-wow-delay="0.3s">
+                              <a class="theme-button" href="{% url 'Project' p.slug %}"><span>مطالب بیشتر</span><i class="fal fa-long-arrow-right"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- portfolio area end -->
+
+    <!-- shop area start -->
+    <section>
+      <div class="shop-area pt-115 pb-80" dir="rtl">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-area text-center mb-45">
+                <span class="section-subtitle mb-2 wow fadeInUp" data-wow-delay="0.1s">Camera Shop</span>
+                <h2 class="section-title mb-15 wow fadeInUp" data-wow-delay="0.3s">Security Cameras shop</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            {% for p in products %}
+              <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="shop-item mb-40 wow fadeInUp" data-wow-delay="0.3s">
+                  <div class="shop-img w_img" style="height: 300px;">
+                    <a href="{% url 'Product' p.slug %}"><img src="{{ p.image_fa.url }}" alt="Image Not Found" /></a>
+                    <div class="shop-cart-action">
+                      <div class="shop-cart-icon">
+                        <a href="{% url 'Cart' %}"><i class="fal {{ p.icon }}"></i> به سبد بیافزایید</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shop-content">
+                    <div class="shop-content-rating">
+                      <a href="#"><i class="fas fa-star"></i></a>
+                      <a href="#"><i class="fas fa-star"></i></a>
+                      <a href="#"><i class="fas fa-star"></i></a>
+                      <a href="#"><i class="fas fa-star"></i></a>
+                      <a href="#"><i class="fas fa-star"></i></a>
+                    </div>
+                    <h3 class="shop-content-title"><a href="{% url 'Product' p.slug %}">{{ p.title_fa }}</a></h3>
+                    <div class="shop-content-price">
+                      <a href="{% url 'Product' p.slug %}">تومان {{ p.price }}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- shop area end -->
+
+    <!-- team-testimonial-area -->
+    <div class="team-testimonial-area bg-light pt-120 pb-30" dir="rtl">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-5 order-1 order-lg-0">
+            <div class="testimonial-content pr-50 mb-40 pb-80 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="testimonial-active swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="testimonial-person">
+                        <img src="{% static 'assets/img/testimonial/admin-1.jpg' %}" alt="Image Not Found" />
+                      </div>
+                      <div class="testimonial-heading">
+                        <h5 class="testimonial-title">David Matin</h5>
+                        <span class="testimonial-subtitle">Customer</span>
+                      </div>
+                      <div class="testimonial-text">
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an printer took a galley.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="testimonial-person">
+                        <img src="{% static 'assets/img/testimonial/admin-2.jpg' %}" alt="Image Not Found" />
+                      </div>
+                      <div class="testimonial-heading">
+                        <h5 class="testimonial-title">Steven Morgan</h5>
+                        <span class="testimonial-subtitle">Support Eng.</span>
+                      </div>
+                      <div class="testimonial-text">
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an printer took a galley.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="testimonial-person">
+                        <img src="{% static 'assets/img/testimonial/admin-3.jpg' %}" alt="Image Not Found" />
+                      </div>
+                      <div class="testimonial-heading">
+                        <h5 class="testimonial-title">Nina Farell</h5>
+                        <span class="testimonial-subtitle">Pure Technology</span>
+                      </div>
+                      <div class="testimonial-text">
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an printer took a galley.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-navigation">
+                <div class="testimonial-swiper-prev">
+                  <i class="fal fa-angle-right"></i>
+                </div>
+                <div class="testimonial-swiper-next">
+                  <i class="fal fa-angle-left"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-7 order-0 order-lg-1">
+            <div class="team-content-wrapper mb-40 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="swiper-container team-active">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="team-item">
+                      <div class="team-img w_img">
+                        <a href="team-details.html"><img src="{% static 'assets/img/team/1.jpg' %}" alt="Image Not Found" /></a>
+                        <div class="team-social-icon">
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-behance"></i></a>
+                        </div>
+                      </div>
+                      <div class="team-content">
+                        <span class="gear-icon"></span>
+                        <h5 class="team-content-title"><a href="team-details.html">Alfread Bonaport</a></h5>
+                        <span class="team-content-subtitle">Electrical Engineer</span>
+                        <div class="middle-content" dir="ltr">
+                          <ul class="list">
+                            <li>
+                              <i class="fal fa-phone-alt"></i><a href="tel:+911206777777">+98 9365602081</a>
+                            </li>
+                            <li>
+                              <i class="fal fa-envelope"></i><a href="mailto:example@gmail.com">example@gmail.com</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="btn-box">
+                          <a class="read-more theme-btn" href="team-details.html">View Profile <i class="fal fa-angle-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="team-item">
+                      <div class="team-img w_img">
+                        <a href="team-details.html"><img src="{% static 'assets/img/team/2.jpg' %}" alt="Image Not Found" /></a>
+                        <div class="team-social-icon">
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-behance"></i></a>
+                        </div>
+                      </div>
+                      <div class="team-content">
+                        <span class="gear-icon"></span>
+                        <h5 class="team-content-title"><a href="team-details.html">Jessica Brown</a></h5>
+                        <span class="team-content-subtitle">Support Engineer</span>
+                        <div class="middle-content" dir="ltr">
+                          <ul class="list">
+                            <li>
+                              <i class="fal fa-phone-alt"></i><a href="tel:+911206777777">+91 120 6777777</a>
+                            </li>
+                            <li>
+                              <i class="fal fa-envelope"></i><a href="mailto:example@gmail.com">example@gmail.com</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="btn-box">
+                          <a class="read-more theme-btn" href="team-details.html">View Profile <i class="fal fa-angle-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="team-item">
+                      <div class="team-img w_img">
+                        <a href="team-details.html"><img src="{% static 'assets/img/team/3.jpg' %}" alt="Image Not Found" /></a>
+                        <div class="team-social-icon">
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-behance"></i></a>
+                        </div>
+                      </div>
+                      <div class="team-content">
+                        <span class="gear-icon"></span>
+                        <h5 class="team-content-title"><a href="team-details.html">Kevin Hardson</a></h5>
+                        <span class="team-content-subtitle">Asst. Manager</span>
+                        <div class="middle-content" dir="ltr">
+                          <ul class="list">
+                            <li>
+                              <i class="fal fa-phone-alt"></i><a href="tel:+911206777777">+91 120 6777777</a>
+                            </li>
+                            <li>
+                              <i class="fal fa-envelope"></i><a href="mailto:example@gmail.com">example@gmail.com</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="btn-box">
+                          <a class="read-more theme-btn" href="team-details.html">View Profile <i class="fal fa-angle-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="team-item">
+                      <div class="team-img w_img">
+                        <a href="team-details.html"><img src="{% static 'assets/img/team/4.jpg' %}" alt="Image Not Found" /></a>
+                        <div class="team-social-icon">
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-behance"></i></a>
+                        </div>
+                      </div>
+                      <div class="team-content">
+                        <span class="gear-icon"></span>
+                        <h5 class="team-content-title"><a href="team-details.html">michale smith</a></h5>
+                        <span class="team-content-subtitle">Product Engineer</span>
+                        <div class="middle-content" dir="ltr">
+                          <ul class="list">
+                            <li>
+                              <i class="fal fa-phone-alt"></i><a href="tel:+911206777777">+91 120 6777777</a>
+                            </li>
+                            <li>
+                              <i class="fal fa-envelope"></i><a href="mailto:example@gmail.com">example@gmail.com</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="btn-box">
+                          <a class="read-more theme-btn" href="team-details.html">View Profile <i class="fal fa-angle-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- team-testimonial-area-end -->
+
+    <!-- blog area start -->
+    <section>
+      <div class="blog-area pt-110 pb-80" dir="rtl">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-area text-center mb-45">
+                <span class="section-subtitle mb-2 wow fadeInUp" data-wow-delay="0.1s">News & Insights</span>
+                <h2 class="section-title mb-15 wow fadeInUp" data-wow-delay="0.3s">Latest News & Insights</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for b in blogs %}
+              <div class="col-xl-4 col-lg-6 col-md-6">
+                <div class="card mb-40 wow fadeInUp" data-wow-delay="0.3s">
+                  <div class="blog-post-info">
+                    <div class="blog-post-btn">
+                      <a href="{% url 'Blog' b.slug %}" class="blog-btn">
+                        <span>مطالب بیشتر</span>
+                        <i class="fal fa-long-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-post-img w_img" style="height: 300px;">
+                    <a href="{% url 'Blog' b.slug %}"><img src="{{ b.image_fa.url }}" alt="Not Found" /></a>
+                    <div class="blog-post-category">
+                      <span>Security</span>
+                    </div>
+                  </div>
+                  <div class="blog-post-content">
+                    <div class="blog-post-meta">
+                      <ul>
+                        <li class="post-date">{{ b.date_create }}</li>
+                        <li class="post-author">
+                          از <a href="#">&nbsp;{{ b.creator }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <h4 class="post-title"><a href="{% url 'Blog' b.slug %}">{{ b.title_fa }}</a></h4>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- blog area end -->
+
+    <!-- cta area start -->
+    <div class="cta-area pb-120" dir="rtl">
+      <div class="container">
+        <div class="cta-item bg-default" data-background="{% static 'assets/img/bg/pattern-1.png' %}">
+          <div class="row align-items-center">
+            <div class="col-xl-6 col-lg-6">
+              <div class="cta-content mb-30 mb-lg-0 wow fadeInLeft" data-wow-delay="0.5s">
+                <h3 class="cta-content-title">در نیوز لتر ثبت نام کنید!</h3>
+                <p class="cta-content-text">Stay up to update with our latest news and products.</p>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+              <div class="cta-newsletter wow fadeInRight" data-wow-delay="0.5s">
+                <form action="#">
+                  <div class="cta-form-group">
+                    <input type="email" name="email" placeholder="Your Email Address" required="" />
+                    <button type="submit" class="theme-btn cta-btn">Subscribe</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- cta area end -->
+  </main>
+{% endblock %}

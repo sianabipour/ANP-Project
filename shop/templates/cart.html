@@ -1,0 +1,138 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Cart</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Cart</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+  <main>
+    <!-- cart area start -->
+    <div class="cart-area pt-120 pb-120" dir="rtl">
+      <div class="container">
+        <div class="row">
+          <div class="col-xxl-8 col-xl-8 col-lg-8 mb-30 mb-lg-0">
+            <div class="shopping-cart-table mb-20 wow fadeInUp" data-wow-delay="0.3s">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="shopping-cart-product-box">
+                        <div class="image">
+                          <img src="{% static 'assets/img/shop/shop-cart.png' %}" alt="Image Not Found" />
+                        </div>
+                        <div class="title-wrap">
+                          <h4 class="title"><a href="shop-details.html">Smart CC Camera</a></h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="product-cart-price">
+                        <span>$36.00</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="single-product-quantity-box cart-product-quantity">
+                        <form action="#">
+                          <a href="#0" class="minus"><i class="fal fa-minus"></i></a>
+                          <input type="text" readonly name="quantity" value="1" />
+                          <a href="#0" class="plus"><i class="fal fa-plus"></i></a>
+                        </form>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="product-cart-price">
+                        <span>36.00</span>
+                      </div>
+                    </td>
+                    <td>
+                      <button class="cart-trash-btn"><i class="fal fa-trash-alt"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="shopping-cart-product-box">
+                        <div class="image">
+                          <img src="{% static 'assets/img/shop/shop-cart.png' %}" alt="Image Not Found" />
+                        </div>
+                        <div class="title-wrap">
+                          <h4 class="title"><a href="shop-details.html">External Web Camera</a></h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="product-cart-price">
+                        <span>$49.50</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="single-product-quantity-box cart-product-quantity">
+                        <form action="#">
+                          <a href="#0" class="minus"><i class="fal fa-minus"></i></a>
+                          <input type="text" readonly name="quantity" value="1" />
+                          <a href="#0" class="plus"><i class="fal fa-plus"></i></a>
+                        </form>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="product-cart-price">
+                        <span>$49.50</span>
+                      </div>
+                    </td>
+                    <td>
+                      <button class="cart-trash-btn"><i class="fal fa-trash-alt"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="cart-actions wow fadeInUp" data-wow-delay="0.5s">
+              <div class="cart-coupon">
+                <input type="text" name="coupon_code" class="cart-coupon-input" value="" placeholder="Coupon code" />
+                <button type="submit" class="cart-coupon-btn theme-btn">Apply coupon</button>
+              </div>
+              <button type="submit" class="cart-update-btn theme-btn">Update cart</button>
+            </div>
+          </div>
+          <div class="col-xxl-4 col-xl-4 col-lg-4">
+            <div class="pl-40 cart-widget-left-space wow fadeInUp" data-wow-delay="0.7s">
+              <div class="cart-total-box-2">
+                <h4 class="title">لورم ایپسوم متن</h4>
+                <ul>
+                  <li>
+                    <span class="label">Subtotal</span> <span class="price">$80.00</span>
+                  </li>
+                  <li>
+                    <span class="label">Shipping</span>
+                    <select name="shipping" class="shipping has-nice-select">
+                      <option value="1">لورم ایپسوم متن</option>
+                      <option value="2">لورم ایپسوم</option>
+                    </select>
+                  </li>
+                  <li>
+                    <span class="label">Total</span> <span class="price total-price">$80.00</span>
+                  </li>
+                  <li class="has-cart-checkout-list-form-style">
+                    <button class="cart-checkout-form-btn theme-btn mt-40" type="submit">Checkout</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- cart area end -->
+  </main>
+{% endblock %}

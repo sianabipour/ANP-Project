@@ -1,0 +1,47 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Projects</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Projects</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+  <main>
+    <!-- portfolio area start -->
+    <section>
+      <div class="portfolio-area pt-110 pb-90" dir="rtl">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-area text-center mb-45">
+                <span class="section-subtitle mb-2 wow fadeInUp" data-wow-delay="0.1s">لورم ایپسوم متن</span>
+                <h2 class="section-title mb-15 wow fadeInUp" data-wow-delay="0.3s">لورم ایپسوم متن</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for p in projects %}
+                <div class="col-xl-{{p.size}} col-lg-{{p.size}} col-md-6">
+                  <div class="s_portfolio-item mb-30 wow fadeInUp" data-wow-delay="0.45s">
+                    <div class="s_portfolio-img">
+                      <a href="{% url 'Project' p.slug %}"><img src="{{p.image_fa.url}}" alt="..." /></a>
+                    </div>
+                    <div class="s_portfolio-content">
+                      <span class="s_portfolio-content-subtitle">{{p.name_fa}}</span>
+                      <h4 class="s_portfolio-content-title"><a href="portfolio-details.html">{{p.name_fa}}</a></h4>
+                      <div class="s_portfolio-button">
+                        <a href="{% url 'Project' p.slug %}" class="s_portfolio-btn"><i class="fal fa-arrow-left"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- portfolio area end -->
+  </main>
+{% endblock %}

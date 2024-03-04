@@ -1,0 +1,166 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Blog</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Blog</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+  <main>
+    <!-- blog details area start -->
+    <section>
+      <div class="blog-details-area pt-120 pb-70" dir="rtl">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 order-2 order-xl-1">
+              <div class="blog-sidebar mb-50">
+                <div class="blog-sidebar-widget blog-search mb-40 wow fadeInUp" data-wow-delay="0.1s">
+                  <h3 class="blog-widget-title">جستجو</h3>
+                  <div class="sidebar-widget-search">
+                    <form action="{% url 'Search' %}">
+                      <input type="text" placeholder="جستجو کنید..." name="q" id="search-input" />
+                      <button class="sidebar-search-btn"><i class="fal fa-search"></i></button>
+                    </form>
+                  </div>
+                </div>
+                <div class="blog-sidebar-widget blog-post mb-40 wow fadeInUp" data-wow-delay="0.3s">
+                  <h3 class="blog-widget-title">آخرین بلاگ ها</h3>
+                  <div class="sidebar-blog-active swiper-container">
+                    <div class="swiper-wrapper">
+                      {% for l in latest %}
+                        <div class="swiper-slide">
+                          <div class="sidebar-blog-item">
+                            <div class="sidebar-blog-img w_img">
+                              <a href="{% url 'Blog' l.slug %}"><img src="{{ l.image_fa.url }}" style="height: 200px;" alt="Image Not Found" /></a>
+                            </div>
+                            <div class="sidebar-blog-info">
+                              <span class="post-date">{{ l.date_create }}</span>
+                              <h4 class="post-title"><a href="{% url 'Blog' l.slug %}">{{ l.title_fa }}</a></h4>
+                            </div>
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                    <div class="sidebar-blog-pagination"></div>
+                  </div>
+                </div>
+                <div class="blog-sidebar-widget blog-category mb-40 wow fadeInUp" data-wow-delay="0.5s">
+                  <h3 class="blog-widget-title">بلاگ های مشابه</h3>
+                  <div class="sidebar-widget-category">
+                    {% for b in suggested_blogs %}
+                      <div class="widget-category-item">
+                        <a href="{% url 'Blog' b.slug %}">
+                          <span class="cat-name">{{ b.title_fa }}</span>
+                          {% comment %} <span class="cat-count">4</span> {% endcomment %}
+                        </a>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="blog-sidebar-widget blog-tags wow fadeInUp" data-wow-delay="0.7s">
+                  <h3 class="blog-widget-title">برچسب ها</h3>
+                  <div class="sidebar-widget-tag">
+                    {% for t in tags %}
+                      <a href="{% url 'Search' %}?q={{ t.name_fa }}">{{ t.name_fa }}</a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-8 order-1 order-xl-2">
+              <div class="blog-details-main ml-40 mb-50">
+                <div class="blog-details-wrap">
+                  <div class="blog-details-post-thumb w_img wow fadeInUp" data-wow-delay="0.1s">
+                    <img src="{{ article.image_fa.url }}" alt="Image Not Found" height="530px" />
+                  </div>
+                  <div class="blog-post-content blog-details-post">
+                    <h4 class="blog-details-post-title wow fadeInUp" data-wow-delay="0.3s">{{ article.title_fa }}</h4>
+                    <div class="blog-post-meta wow fadeInUp" data-wow-delay="0.4s">
+                      <ul>
+                        <li class="post-date">{{ article.date_create }}</li>
+                        <li class="post-author">
+                          از <a href="blog-detials.html">{{ article.creator }}</a>
+                        </li>
+                        <li class="post-comment">
+                          <i class="fal fa-comments"></i> {{ comments.count }} تا کامنت
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="blog-details-text mb-25 wow fadeInUp" data-wow-delay="0.5s">{{ article.meta_description_fa }}</p>
+                </div>
+                <div class="blog-details-meta wow fadeInUp" data-wow-delay="0.7s">
+                  <div class="sidebar-widget-tag blog-tag">
+                    <h6 class="blog-details-meta-title">برچسب ها:</h6>
+                    {% for tag in article.tags.all %}
+                      <a href="{% url 'Search' %}?q={{ tag.name_fa }}">{{ tag.name_fa }}</a>
+                    {% endfor %}
+                  </div>
+                  <div class="blog-details-social">
+                    <h6 class="blog-details-meta-title">ما را دنبال کنید:</h6>
+                    <a target="_blank" href="https://www.aparat.com/ANPco"><i class="fab fa-dribbble"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/anp_co"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/company/andishe-negar-pars"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                </div>
+
+                <div class="blog-comment-wrap mb-50 wow fadeInUp" data-wow-delay="0.4s">
+                  <h3 class="blog-comment-title">({{ comments.count }}) نظرات</h3>
+                  {% for c in comments %}
+                    <div class="blog-comment-item mb-30">
+                      <div class="blog-comment-author">
+                        <img src="{% static 'assets/img/blog/author.jpg' %}" alt="Image Not Found" />
+                      </div>
+                      <div class="blog-comment-content">
+                        <div class="blog-comment-content-head">
+                          <div class="author-info">
+                            <h5 class="author-title">{{ c.user }}</h5>
+                            <span>{{ c.date_create }}</span>
+                          </div>
+                        </div>
+                        <div class="blog-comment-content-text">
+                          <p>{{ c.comment_description }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+
+                <div class="blog-comment-reply wow fadeInUp" data-wow-delay="0.5s">
+                  <div class="blog-comment-reply-form">
+                    {% if user.is_authenticated %}
+                      <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                          <div class="col-xl-6">
+                            <input type="text" placeholder="Name" value="{{ user.full_name }}" name="user" disabled />
+                          </div>
+                          <div class="col-xl-6">
+                            <input type="text" placeholder="Email Address" value="{{ user.email }}" name="email" disabled />
+                          </div>
+                          <div class="col-12">
+                            <textarea name="message" cols="30" rows="10" placeholder="نظر شما..."></textarea>
+                          </div>
+                          <div class="col-12">
+                            <button class="theme-btn reply-btn">ثبت</button>
+                          </div>
+                        </div>
+                      </form>
+                    {% else %}
+                      <p class="section-title">
+                        برای ثبت نظرات، به حساب <a href="{% url 'Login' %}">کاربری</a> خود وارد شوید.
+                      </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- blog details area end -->
+  </main>
+{% endblock %}

@@ -1,0 +1,44 @@
+div.sp_social {}
+	div.sp_social ul {list-style:none;padding:0;margin:0}
+	div.sp_social ul li {display:inline-block;padding:0;margin:0 2px 0 0;background:none}
+	div.sp_social ul li a {display:block;padding:0;margin:0;background-color:none;background-repeat:no-repeat;background-position:50%;font-size:12px;border:0;text-decoration:none;}
+	div.sp_social.icon_size_32 ul li a {width:32px;height:32px;}
+	div.sp_social.icon_size_16 ul li a {width:16px;height:16px;}
+	div.sp_social ul li a:hover {background-color:none;text-decoration:none}
+	div.sp_social ul  li a span {display:none}
+	div.sp_social ul  li a strong {display:none}
+	
+	/*Icons 32*/
+	div.sp_social.icon_size_32 ul li a.sp_social_rss {background-image:url(../../images/default/32/rss.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_facebook {background-image:url(../../images/default/32/facebook.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_twitter {background-image:url(../../images/default/32/twitter.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_googleplus {background-image:url(../../images/default/32/google_plus.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_linkedin {background-image:url(../../images/default/32/linkedin.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_youtube {background-image:url(../../images/default/32/youtube.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_pinterest {background-image:url(../../images/default/32/pinterest.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_flickr {background-image:url(../../images/default/32/flickr.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_picasa {background-image:url(../../images/default/32/picasa.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_myspace {background-image:url(../../images/default/32/myspace.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_digg {background-image:url(../../images/default/32/digg.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_skype {background-image:url(../../images/default/32/skype.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_vimeo {background-image:url(../../images/default/32/vimeo.png)}
+	div.sp_social.icon_size_32 ul li a.sp_social_delicious {background-image:url(../../images/default/32/delicious.png)}
+
+	/*Icons 16*/
+	div.sp_social.icon_size_16 ul li a.sp_social_rss {background-image:url(../../images/default/16/rss.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_facebook {background-image:url(../../images/default/16/facebook.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_twitter {background-image:url(../../images/default/16/twitter.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_googleplus {background-image:url(../../images/default/16/google_plus.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_linkedin {background-image:url(../../images/default/16/linkedin.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_youtube {background-image:url(../../images/default/16/youtube.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_pinterest {background-image:url(../../images/default/16/pinterest.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_flickr {background-image:url(../../images/default/16/flickr.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_picasa {background-image:url(../../images/default/16/picasa.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_myspace {background-image:url(../../images/default/16/myspace.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_digg {background-image:url(../../images/default/16/digg.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_skype {background-image:url(../../images/default/16/skype.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_vimeo {background-image:url(../../images/default/16/vimeo.png)}
+	div.sp_social.icon_size_16 ul li a.sp_social_delicious {background-image:url(../../images/default/16/delicious.png)}
+	
+	/*rtl*/
+	.rtl div.sp_social ul li {margin:0 0 0 2px}

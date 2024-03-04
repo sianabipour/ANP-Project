@@ -1,0 +1,418 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+  <!-- Mirrored from themephi.net/template/onsafe/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Dec 2023 11:36:35 GMT -->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/odometer.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/jquery.rprogessbar.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/swipper.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animated-circle.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+  </head>
+
+  <body>
+    <!-- sidebar-information-area-start -->
+    <div class="sidebar-info side-info" dir="rtl">
+      <div class="sidebar-logo-wrapper mb-25">
+        <div class="row align-items-center">
+          <div class="col-xl-6 col-8">
+            <div class="sidebar-logo">
+              <a href="{% url 'Home' %}"><img src="{% static 'assets/img/logo/logo-white.png' %}" alt="logo-img" /></a>
+            </div>
+          </div>
+          <div class="col-xl-6 col-4">
+            <div class="sidebar-close-wrapper text-end">
+              <button class="sidebar-close side-info-close"><i class="fal fa-times"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-menu-wrapper fix">
+        <div class="mobile-menu"></div>
+      </div>
+
+      <div class="sidebar-contact-wrapper mt-40">
+        <div class="sidebar-contact mb-40">
+          <h4 class="sidebar-contact-title">راههای ارتباطی</h4>
+          <span class="sidebar-address"><i class="fal fa-map-marker-alt"></i><span>&nbsp;تهران، خیابان خالد‌اسلامبولی (وزراء)، خیابان ۱۱، شماره ۲۱</span></span>
+          <a href="tel:+1(251)410-1010"><i class="fal fa-phone"></i><span>021-88552485-6</span></a>
+          <a href="mailto:example@gmail.com" class="theme-3"><i class="fal fa-envelope"></i><span><span>customer@anp-co.com</span></span></a>
+        </div>
+
+        <div class="sidebar-social mt-40 mb-30">
+          <a target="_blank" href="https://www.aparat.com/ANPco"><i class="fab fa-dribbble"></i></a>
+          <a target="_blank" href="https://www.instagram.com/anp_co"><i class="fab fa-instagram"></i></a>
+          <a target="_blank" href="https://www.linkedin.com/company/andishe-negar-pars"><i class="fab fa-linkedin"></i></a>
+          <a class="ns-header-action-search" href="#search"><i class="fal fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas-overlay"></div>
+    <!-- sidebar-information-area-end -->
+
+    <!-- search start area -->
+    <div class="ba-search-popup">
+      <div class="ba-color-layer"></div>
+      <div class="ba-search-popup-inner">
+        <form action="{% url 'Search' %}">
+          <input type="text" placeholder="جستجو کنید..." name="q" id="search-input" />
+          <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    <!-- search start end -->
+
+    <!-- header area start -->
+    <header>
+      <div class="header-area">
+        <div class="header-topbar d-none d-md-block" dir="rtl">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-md-8">
+                <div class="header-topbar-info">
+                  <p>
+                    <i class="fal fa-map-marker-alt"></i> &nbsp;تهران، خیابان خالد‌اسلامبولی (وزراء)، خیابان ۱۱، شماره ۲۱
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-4">
+                <div class="header-topbar-social">
+                  <a target="_blank" href="https://www.aparat.com/ANPco"><i class="fab fa-dribbble"></i></a>
+                  <a target="_blank" href="https://www.instagram.com/anp_co"><i class="fab fa-instagram"></i></a>
+                  <a target="_blank" href="https://www.linkedin.com/company/andishe-negar-pars"><i class="fab fa-linkedin"></i></a>
+                  <a href="#search" class="ns-header-action-search"><i class="fal fa-search"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-middle">
+          <div class="container">
+            <div class="middle-wrap">
+              <div class="logo">
+                <a href="{% url 'Home' %}"><img class="logo-1" src="{% static 'assets/img/logo/logo-white.png' %}" alt="Image Not Found" /></a>
+              </div>
+              <div class="middle-info d-none d-lg-flex">
+                <div class="single-item" dir="rtl">
+                  <div class="icon">
+                    <i class="fal fa-home"></i>
+                  </div>
+                  <div class="info">
+                    <span>شماره تماس</span>
+                    <a class="info-content" href="tel:02188552485 ">021-88552485-6</a>
+                  </div>
+                </div>
+                <div class="single-item" dir="rtl">
+                  <div class="icon">
+                    <i class="fal fa-clock"></i>
+                  </div>
+                  <div class="info">
+                    <span>لورم ایپسوم متن</span>
+                    <span class="info-content">9:00am - 6:00pm</span>
+                  </div>
+                </div>
+                <div class="single-item" dir="rtl">
+                  <div class="icon">
+                    <i class="fal fa-envelope"></i>
+                  </div>
+                  <div class="info">
+                    <span>ایمیل</span>
+                    <a class="info-content" href="mailto:customer@anp-co.com">customer@anp-co.com</a>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-bar d-lg-none">
+                <div class="navbar-sign side-toggle">
+                  <span class="menu-line-1"></span>
+                  <span class="menu-line-2"></span>
+                  <span class="menu-line-3"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-menu d-none d-lg-block" dir="rtl">
+          <div class="container">
+            <div class="menu-wrap">
+              <nav class="main-menu mobile-menu" id="mobile-menu">
+                <ul dir="rtl">
+                  <li class="menu-has-child">
+                    <a href="{% url 'Home' %}">خانه</a>
+                    <ul class="submenu">
+                      <li>
+                        <a href="index-2.html">Home</a>
+                      </li>
+                      <li>
+                        <a href="index-3.html">Home 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="{% url 'Services' %}">خدمات</a>
+                  </li>
+                  <li class="menu-has-child">
+                    <a href="{% url 'Projects' %}">پروژه ها</a>
+                    <ul class="submenu">
+                      <li>
+                        <a href="service.html">Service</a>
+                      </li>
+                      <li>
+                        <a href="service-details.html">Service Details</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-has-child">
+                    <a href="{% url 'Blogs' %}">بلاگ</a>
+                    <ul class="submenu">
+                      <li>
+                        <a href="team-details.html">Team Details</a>
+                      </li>
+                      <li>
+                        <a href="portfolio.html">Portfolio</a>
+                      </li>
+                      <li>
+                        <a href="portfolio-details.html">Portfolio Details</a>
+                      </li>
+                      <li>
+                        <a href="checkout.html">Checkout</a>
+                      </li>
+                      <li>
+                        <a href="cart.html">Cart</a>
+                      </li>
+                      <li>
+                        <a href="404.html">404</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-has-child">
+                    <a href="{% url 'About' %}">درباره ما</a>
+                    <ul class="submenu">
+                      <li>
+                        <a href="shop.html">Shop</a>
+                      </li>
+                      <li>
+                        <a href="shop-details.html">Shop Details</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-has-child">
+                    <a href="{% url 'Products' %}">محصولات</a>
+                    <ul class="submenu">
+                      <li>
+                        <a href="blog.html">Blog</a>
+                      </li>
+                      <li>
+                        <a href="blog-details.html">Blog Details</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="{% url 'Contacts' %}">ارتباط با ما</a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="menu-right">
+                <a href="http://46.209.2.238/Dana/Shared/Public/SignIn.aspx" target="_blank" class="theme-btn header-btn">سامانه پشتیبانی آنلاین</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header area end -->
+    {% block body %}
+
+    {% endblock %}
+    <!-- footer area start -->
+    <footer class="footer-area" dir="rtl">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-4 col-lg-12">
+              <div class="footer-left wow fadeInUp" data-wow-delay="0.3s">
+                <div class="social">
+                  <a target="_blank" href="https://www.aparat.com/ANPco"><i class="fab fa-dribbble"></i></a>
+                  <a target="_blank" href="https://www.instagram.com/anp_co"><i class="fab fa-instagram"></i></a>
+                  <a target="_blank" href="https://www.linkedin.com/company/andishe-negar-pars"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="inner-left">
+                  <div class="footer-content">
+                    <div class="footer-logo">
+                      <a href="{% url 'Home' %}"><img src="{% static 'assets/img/logo/logo3.png' %}" alt="Image Not Found" /></a>
+                    </div>
+                  </div>
+                  <div class="footer-contact">
+                    <div class="footer-contact-item address">
+                      <div class="address-icon contact-icon">
+                        <i class="fal fa-map-signs"></i>
+                      </div>
+                      <div class="address-info contact-info">
+                        <p>تهران، خیابان خالد‌اسلامبولی (وزراء)، خیابان ۱۱، شماره ۲۱</p>
+                      </div>
+                    </div>
+                    <div class="footer-contact-item phone">
+                      <div class="phone-icon contact-icon">
+                        <i class="fal fa-phone-alt"></i>
+                      </div>
+                      <div class="phone-info contact-info">
+                        <a href="tel:021-88552485">021-88552485-6</a>
+                        <a href="tel:021-8794">021-8794</a>
+                      </div>
+                    </div>
+                    <div class="footer-contact-item phone">
+                      <div class="phone-icon contact-icon">
+                        <i class="fal fa-phone-alt"></i>
+                      </div>
+                      <div class="phone-info contact-info">
+                        <p>
+                          <b>(شماره نمابر)</b>
+                        </p>
+                        <a href="tel:021-88708890">021-88708890</a>
+                      </div>
+                    </div>
+                    <div class="footer-contact-item mail">
+                      <div class="mail-icon contact-icon">
+                        <i class="fal fa-envelope"></i>
+                      </div>
+                      <div class="mail-info contact-info">
+                        <a href="mailto:customer@anp-co.com">customer@anp-co.com</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5 col-lg-7 col-md-7">
+              <div class="footer-combine mr-30 pt-85 pb-90 ml-60 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="footer-menu-wrap">
+                  <div class="footer-widget">
+                    <h3 class="footer-widget-title">اندیشه نگار پارس</h3>
+                    <div class="footer-widget-menu">
+                      <ul>
+                        <li>
+                          <a href="{% url 'About' %}">درباره ما</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Home' %}">اخبار شرکت</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Home' %}">فرصت های شغلی</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Home' %}">تماس با ما</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Home' %}">گالری</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-time-wrap">
+                  <div class="footer-widget">
+                    <h3 class="footer-widget-title">سرویس های ما</h3>
+                    <div class="footer-widget-menu">
+                      <ul>
+                        <li>
+                          <a href="{% url 'Home' %}">صفحه اصلی</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Products' %}">محصولات</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Home' %}">راه کارها</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Services' %}">خدمات</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Projects' %}">پروژه ها</a>
+                        </li>
+                        <li>
+                          <a href="{% url 'Contacts' %}">تماس با ما</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-5 col-md-5">
+              <div class="footer-widget pt-85 pb-90 wow fadeInUp" data-wow-delay="0.7s">
+                <h3 class="footer-widget-title">عضویت در خبرنامه</h3>
+                <div class="footer-widget-newsletter">
+                  <div class="newsletter-form">
+                    <p>دریافت آخرین اخبار در ایمیل</p>
+                    <form action="#">
+                      <input type="email" name="email" placeholder="ایمیل خود را وارد کنید" />
+                      <button type="submit" class="theme-btn subscribe-btn">ثبت عضویت</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="copyright-text wow fadeInUp" data-wow-delay="0.5s">
+                <p>Copyright © 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer area end -->
+    {% block script %}
+    {% endblock %}
+    <!-- JS here -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if msg %}
+    <script>
+      Swal.fire({
+        position: "center-center",
+        icon: "{{msg_type}}",
+        title: "{{msg}}",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    </script>
+    {% endif %}
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/swipper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/jQuery.rProgressbar.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/odometer.min.js' %}"></script>
+    <script src="{% static 'assets/js/appear.min.js' %}"></script>
+    <script src="{% static 'assets/js/aminated-circle.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+  </body>
+
+  <!-- Mirrored from themephi.net/template/onsafe/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Dec 2023 11:37:56 GMT -->
+</html>

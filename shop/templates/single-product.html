@@ -1,0 +1,194 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Product</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Product</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+  <main>
+    <!-- shop details start -->
+    <section>
+      <div class="shop-details-area pt-120 pb-120" dir="rtl">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">
+              <div class="shop-details-img w_img mb-40 wow fadeInLeft" style="height:540px ;" data-wow-delay="0.3s">
+                <img src="{{ product.image_fa.url }}" alt="Image Not Found" />
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+              <div class="shop-details-content ml-40 mb-40">
+                <h3 class="shop-details-content-title wow fadeInUp" data-wow-delay="0.3s">{{ product.title_fa }}</h3>
+                <div class="shop-details-review wow fadeInUp" data-wow-delay="0.4s">
+                  <div class="shop-details-rating">
+                    <span><i class="fas fa-star"></i></span>
+                    <span><i class="fas fa-star"></i></span>
+                    <span><i class="fas fa-star"></i></span>
+                    <span><i class="fas fa-star"></i></span>
+                    <span><i class="fas fa-star-half-alt"></i></span>
+                  </div>
+                  <span class="shop-details-review-text">(5 Customer Reviews)</span>
+                </div>
+                <div class="shop-details-price wow fadeInUp" data-wow-delay="0.5s">
+                  <span>{{ product.price }} تومان</span>
+                </div>
+                <p class="shop-details-text wow fadeInUp" data-wow-delay="0.6s">{{ product.meta_description_fa }}</p>
+                <div class="shop-details-cart-action-wrap wow fadeInUp" data-wow-delay="0.7s">
+                  <div class="single-product-quantity-box">
+                    <form action="#">
+                      <a href="#0" class="minus"><i class="fal fa-minus"></i></a>
+                      <input type="text" readonly name="quantity" value="1" />
+                      <a href="#0" class="plus"><i class="fal fa-plus"></i></a>
+                    </form>
+                  </div>
+                  <a href="cart.html" class="shop-details-addcart"><span class="addcart-btn reply-btn theme-btn"><i class="fal fa-shopping-cart"></i>به سبد خرید بیافزایید</span></a>
+                </div>
+                <div class="shop-product-meta">
+                  <span class="shop-product-meta-sku shop-meta-item">
+                    سرتیتر:
+                    <span class="shop-meta-info"><a href="shop.html">GE75GRY</a></span>
+                  </span>
+                  <span class="shop-product-meta-cat shop-meta-item">
+                    کتگوری:
+                    
+                    <span class="shop-meta-info">
+                      <a href="{% url 'Search' %}?q={{ product.category.name_fa }}">{{ product.category.name_fa }}</a>
+                    </span>
+                  </span>
+                  <span class="shop-product-meta-tag shop-meta-item">
+                    برچسب ها:
+                    {% for tag in product.tags.all %}
+                      <span class="shop-meta-info"><a href="{% url 'Search' %}?q={{ tag.name_fa }}">{{ tag.name_fa }}</a></span>
+                    {% endfor %}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="shop-details-info-tabs">
+                <div class="shop-details-info-tab-controls mb-30">
+                  <nav>
+                    <div class="nav" id="nav-tab" role="tablist">
+                      <button class="active wow fadeInUp" data-wow-delay="0.1s" id="nav-desc-tab" data-bs-toggle="tab" data-bs-target="#nav-desc" type="button" role="tab" aria-controls="nav-desc" aria-selected="true">درباره محصول</button>
+                      <button class="wow fadeInUp" data-wow-delay="0.3s" id="nav-review-tab" data-bs-toggle="tab" data-bs-target="#nav-review" type="button" role="tab" aria-controls="nav-review" aria-selected="false">نظرات ({{ comments.count }})</button>
+                    </div>
+                  </nav>
+                </div>
+                <div class="shop-details-info-tab-content">
+                  <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active wow fadeInUp" data-wow-delay="0.1s" id="nav-desc" role="tabpanel" aria-labelledby="nav-desc-tab">
+                      <div class="row">
+                        <div class="col-xl-10">
+                          <div class="description-text">
+                            <p>{{ product.meta_description_fa }}</p>
+                          </div>
+                          {% comment %} <div class="description-list">
+                            <ul>
+                              <li>
+                                <i class="fas fa-check-circle"></i> Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet
+                              </li>
+                              <li>
+                                <i class="fas fa-check-circle"></i> Tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary
+                              </li>
+                              <li>
+                                <i class="fas fa-check-circle"></i> Over 200 Latin words, combined with a handful of model sentence
+                              </li>
+                            </ul>
+                          </div> {% endcomment %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade wow fadeInUp" data-wow-delay="0.1s" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
+                      <div class="shop-details-review-box">
+                        <div class="shop-details-review-box-wrap">
+                          {% for c in comments %}
+                            <div class="shop-details-review-box-single">
+                              <div class="shop-review-thumb">
+                                <img src="assets/img/shop/author.jpg" alt="Image Not Found" />
+                              </div>
+                              <div class="shop-review-content">
+                                <div class="reviewer-info">
+                                  <div class="shop-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fal fa-star"></i>
+                                  </div>
+                                  <h4 class="title">{{ c.user }}</h4>
+                                </div>
+                                <div class="review-date">
+                                  <span>{{ c.date_create }}</span>
+                                </div>
+                                <p class="review-text">{{ c.comment_description }}</p>
+                              </div>
+                            </div>
+                          {% endfor %}
+                        </div>
+                        <div class="required-field">
+                          <h4 class="shop-details-review-title mb-10">نظر شما</h4>
+                          <p>ایمیل شما پخش نمی‌شود.</p>
+                        </div>
+                        <div class="shop-review">
+                          <span>ستاره شما</span>
+                          <div class="shop-review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <form method="POST">
+                          {% csrf_token %}
+                          <div class="submit-form-default">
+                            <div class="row">
+                              <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="shop-submit-form-default-single">
+                                  <input type="text" id="name" name="user" class="name" placeholder="نام کاربری" />
+                                </div>
+                              </div>
+                              <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="shop-submit-form-default-single">
+                                  <input type="text" id="email" name="email" class="email" placeholder="ایمیل" />
+                                </div>
+                              </div>
+                              <div class="col-xl-12 col-lg-12">
+                                <div class="shop-submit-form-default-single">
+                                  <textarea id="review" name="message" class="review" placeholder="نظر شما"></textarea>
+                                </div>
+                              </div>
+                              {% comment %} <div class="col-xl-12 col-lg-12">
+                                <div class="shop-submit-form-default-single mb-20">
+                                  <div class="condition-box">
+                                    <input type="checkbox" id="condition" class="has-condition condition" />
+                                    <label for="condition" class="condition">من را ذخیره کن.</label>
+                                  </div>
+                                </div>
+                              </div> {% endcomment %}
+                              <div class="col-xl-12 col-lg-12">
+                                <div class="shop-submit-form-default-single">
+                                  <button type="submit" class="shop-submit-form-default-single-btn theme-btn reply-btn">ثبت</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- shop details end -->
+  </main>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<!-- breadcrumb area start -->
+<section class="bn-slider breadcrumb-height bn-breadcrumb align-items-center d-flex" data-background="{% static 'assets/img/bg/breadcrumb.jpg'%}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="bn-breadcrumb-wrap text-center">
+
+            {% block breadcrumb %}
+
+            {% endblock breadcrumb %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- breadcrumb area end -->
+
+{% block body_extended%}
+{% endblock %}
+
+{% endblock body %}

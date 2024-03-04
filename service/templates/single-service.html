@@ -1,0 +1,72 @@
+{% extends 'base-extended.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <h2 class="bn-breadcrumb-title wow fadeInUp" data-wow-delay="0.1s">Service</h2>
+  <div class="bn-breadcrumb-list wow fadeInUp" data-wow-delay="0.3s">
+    <a href="index-2.html">Home</a>
+    <span>Service</span>
+  </div>
+{% endblock %}
+{% block body_extended %}
+  <!-- service details area start -->
+  <section>
+    <div class="service-details-area pt-120 pb-70" dir="rtl">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 order-1 order-xl-0">
+            <div class="service-sidebar pb-50">
+              <div class="widget-categories mb-40 wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="widget-title">سرویس های مشابه</h5>
+                <div class="widget-content">
+                  <ul>
+                    {% for s in suggested_services  %}
+                    <li>
+                      <a href="{% url "Service" s.slug %}">{{s.title_fa}}<i class="fal fa-arrow-right"></i></a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+              <div class="widget-help mb-40 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="widget-content">
+                  <h4 class="widget-title">این سرویس را میخواهم!</h4>
+                  <p class="widget-text">برای ثبت درخواست خود، شماره تماس خود را وارد کنید.</p>
+                  <div class="mb-20">
+                    <form method="POST">
+                      {% csrf_token %}
+                      <label for="service" class="form-label">شماره تماس:</label>
+                      <input id="service" class="form-control" name="phone" placeholder="09123456789" oninvalid="setCustomValidity('لطفا این قسمت را پر کنید!')" required>
+                      <div class="mt-10">
+                        <button class="theme-btn contact-form-btn">ثبت</button>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+              {% if service.attached_file %}
+              <div class="widget-download wow fadeInUp" data-wow-delay="0.5s">
+                <div class="widget-content">
+                  <h4 class="widget-title">دانلود فایل مربوطه</h4>
+                  <a download href="{{service.attached_file.url}}" class="download-btn download-btn-1"><i class="fal fa-folder-download"></i>Download</a>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-xl-8 order-0 order-xl-1">
+            <div class="service-details-main ml-40 pb-20">
+              <h3 class="service-details-title mb-20 wow fadeInUp" data-wow-delay="0.1s">{{ service.title_fa }}</h3>
+              <div class="service-details-img mb-30 wow fadeInUp" data-wow-delay="0.3s">
+                <img src="{{ service.image_fa.url }}" alt="..." />
+              </div>
+              <p class="service-details-text wow fadeInUp" data-wow-delay="0.4s">{{ service.meta_description_fa }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- service details area end -->
+  
+{% endblock %}
